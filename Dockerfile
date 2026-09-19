@@ -43,6 +43,8 @@ RUN npm install --omit=dev
 
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/latent_canvas ./latent_canvas
+COPY --from=builder /app/benchmarks ./benchmarks
+COPY --from=builder /app/assets ./assets
 COPY --from=builder /app/prompts ./prompts
 COPY --from=builder /app/pyproject.toml ./
 COPY --from=builder /app/requirements.txt ./
