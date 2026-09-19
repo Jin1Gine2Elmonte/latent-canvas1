@@ -1,0 +1,6 @@
+{
+  "name": "Latent Canvas",
+  "description": "Visual Chain-of-Thought (Visual-CoT) developer framework and multimodal verification harness using topological graph synthesis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
