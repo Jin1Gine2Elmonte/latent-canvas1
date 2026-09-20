@@ -12,7 +12,7 @@ import json
 import logging
 import os
 import time
-from typing import Any, Callable, Dict, Optional, Tuple
+from typing import Callable, Optional, Tuple
 
 from google import genai
 from google.genai import types
@@ -130,9 +130,6 @@ class LatentCanvas:
             "Provide your self-critique, verify or correct the initial hypothesis, and "
             "emit the final verified resolution in structured JSON."
         )
-
-        class Pass2Schema(types.Schema):
-            pass
 
         # We configure structured output for Pass 2 verification
         response = self.client.models.generate_content(

@@ -8,7 +8,7 @@ fallback to ensure zero runtime crashes across diverse developer environments.
 import io
 import logging
 import re
-from typing import Optional, Tuple
+from typing import Tuple
 
 logger = logging.getLogger("latent_canvas.renderer")
 
@@ -25,7 +25,7 @@ except (ImportError, OSError) as exc:
 # Attempt Pillow import
 _PIL_AVAILABLE = False
 try:
-    from PIL import Image, ImageDraw, ImageFont  # type: ignore
+    from PIL import Image, ImageDraw  # type: ignore
 
     _PIL_AVAILABLE = True
 except ImportError:

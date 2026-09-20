@@ -3,16 +3,15 @@ Command Line Interface for Latent Canvas.
 Built with Typer and Rich to provide an elegant, research-grade terminal experience.
 """
 
-import json
 import os
 import sys
 import time
+from pathlib import Path
 from typing import Optional
 
 import typer
 from rich import box
 from rich.console import Console
-from rich.markdown import Markdown
 from rich.panel import Panel
 from rich.syntax import Syntax
 from rich.table import Table
@@ -21,7 +20,7 @@ from latent_canvas import __version__
 from latent_canvas.core import LatentCanvas
 from latent_canvas.prompts import LATENT_CANVAS_SYSTEM_PROMPT
 from latent_canvas.renderer import render_svg_to_png, save_png
-from latent_canvas.schema import SelfCritique, VerifiedResolution, VisualScratchpad
+from latent_canvas.schema import SelfCritique, VisualScratchpad
 
 app = typer.Typer(
     name="latent-canvas",
@@ -199,6 +198,9 @@ def benchmark(
     model: str = typer.Option("gemini-2.5-flash", "--model", help="Gemini model identifier for live benchmarks."),
 ) -> None:
     """Run the standardized Visual-CoT evaluation benchmark suite."""
+    repo_root = Path(__file__).resolve().parent.parent
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
     from benchmarks.evaluate import run_evaluation
     run_evaluation(mock_mode=mock, model=model)
 

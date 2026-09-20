@@ -5,7 +5,6 @@ Evaluates baseline text performance against topological multimodal self-critique
 
 import argparse
 import json
-import os
 import sys
 import time
 from pathlib import Path

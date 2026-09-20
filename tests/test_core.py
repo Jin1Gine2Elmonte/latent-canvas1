@@ -6,8 +6,6 @@ import unittest
 from unittest.mock import MagicMock, patch
 
 try:
-    import pydantic
-    from latent_canvas.prompts import LATENT_CANVAS_SYSTEM_PROMPT
     from latent_canvas.renderer import render_svg_to_png
     from latent_canvas.schema import (
         EdgeMetric,
